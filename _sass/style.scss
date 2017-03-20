@@ -1,0 +1,481 @@
+@import '../bower_components/susy/sass/susy';
+@import '../bower_components/normalize-scss/_normalize.scss';
+
+//@import '../bower_components/bootstrap-sass/assets/stylesheets/bootstrap'; // Boostrap
+// Resets
+//@import '_custom-bootstrap.scss';
+
+/*  ------------------------------------------
+    Susy settings
+    ------------------------------------------  */
+$susy: (
+  flow: ltr, // ltr | rtl
+  output: float, // float | isolate
+  math: fluid, // fluid | static (requires column-width)
+  column-width: false, // false | value
+  container: 1366px, // length or % | auto
+  container-position: center, // left | center | right | <length> [*2] (grid padding)
+  last-flow: to, //from | to
+  columns: 12,
+  gutters: 1/4,
+  gutter-position: after, // before | after | split | inside | inside-static (requires column-width)
+  global-box-sizing: border-box, // content-box | border-box (affects inside/inside-static)
+  debug: (
+    image: hide, //hide | show
+    color: rgba(#66f, .25),
+    output: background, // background | overlay
+    toggle: top left, //top left  | top right
+  ),
+  use-custom: (
+    background-image: true, // look for background-image mixin
+    background-options: false, // look for background-size, -origin and -clip and other compass/bourbon mixins
+    box-sizing: true, // look for custom bix sizing mixin
+    clearfix: false, // true = look for internal clearfix before using micro clearfix
+    rem: true, // look for rem mixin
+  )
+);
+
+$gallery_layout: layout( 12 .125 fluid float after);
+
+$nav_layout: layout( 12 0 fluid float inside);
+
+$golden_layout: layout( (1 1.618 2.618) .1 fluid float split);
+/*  ------------------------------------------
+    It makes your life easy!
+    ------------------------------------------  */
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+ }
+img {
+  width: 100%;
+  height: auto;
+}
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+// nav {
+//   margin: 0px 0;
+//   text-align: center;
+//   li {
+//     background: #eee;
+//   }
+//   a {
+//     display: block;
+//     &:hover {
+//       background: #ddd;
+//     }
+//   }
+// }
+/*  ------------------------------------------
+    Colour codes! Indigo - Pinks
+    ------------------------------------------  */
+$color-primary-100: #C5CAE9;
+$color-primary-500: #3F51B5;
+$color-primary-700: #303F9F;
+
+$color-secondary-200: #F48FB1;
+$color-secondary-100: #F8BBD0;
+$color-secondary-400: #EC407A;
+
+$color-gray-900-darker: #212121;
+$color-gray-700-dark: #616161;
+$color-gray-500: #9E9E9E;
+$color-gray-300-light: #E0E0E0;
+$color-gray-100-lighter: #F5F5F5;
+$color-gray-50-lightest: #FAFAFA;
+
+// Colours
+$color-primary: #38a1d6;
+$color-secondary: #16f4d0;
+$color-tertiary: #fcee21;
+$color-grey: #a1acb5;
+$color-grey-light: #dce8ef;
+$color-grey-dark: #333;
+
+//bootstrap colors
+// @gray-darker:  lighten(#000, 13.5%); // #222
+// @gray-dark:    lighten(#000, 20%);   // #333
+// @gray:         lighten(#000, 33.5%); // #555
+// @gray-light:   lighten(#000, 46.7%); // #777
+// @gray-lighter: lighten(#000, 93.5%); // #eee
+
+// @brand-primary: darken(#428bca, 6.5%); // #337ab7
+// @brand-success: #5cb85c;
+// @brand-info:    #5bc0de;
+// @brand-warning: #f0ad4e;
+// @brand-danger:  #d9534f;
+
+/*  ------------------------------------------
+    Breakpoints
+    ------------------------------------------  */
+$mobile-landscape: 30rem; // 480px
+$tablet: 40rem; // 640px
+$tablet-wide: 48rem; // 768px
+$desktop: 64rem; // 1024px
+$widescreen: 71.25rem; // 1140px
+
+$tablet-a: 414px;
+$tablet-b: 768px;
+$desktop-a: 1366px;
+// iPhone 6s plus 414px=25.9em         
+// .. Tablet Layout Pattern (20em=320px) (old iPhone)26em=414px 48em=768px(iPad)  
+// $tablet-a: 27em;
+// $tablet-b: 48em;
+// // .. Desktop Layout Pattern
+// $desktop-a: 48em;
+  // .. Tablet Layout Pattern 20em=320px (old iPhone) 48em=768px(iPad)  
+/* 
+  @include susy-media($tablet-a $tablet-b) {
+  @include susy-media(min-width $desktop-a) { 
+*/
+/*  ------------------------------------------
+    Makes life easy code cont.
+    ------------------------------------------  */
+.debug {
+  border: 1px dashed red;
+  //background-color: #EFE; //OR
+}
+.wrap {
+  @include container;
+}
+// wrap and content may together work
+.contents {
+  padding: 0 gutter();
+}
+
+/*  ------------------------------------------
+    navbar
+    ------------------------------------------  */
+$bgDefault      : $color-primary-700;
+$bgHighlight    : $color-secondary-400;
+$colDefault     : $color-gray-100-lighter;
+$colHover       : $color-secondary-400; 
+
+.navbar-default {
+    background-image: linear-gradient(to bottom right, $color-primary-500, $color-primary-700);
+    .navbar-brand {
+        color: $colDefault;
+        &:hover, &:focus {
+            color: $color-gray-100-lighter; }}
+    .navbar-nav {
+        > li {
+            > a {
+                color: $colDefault;
+                &:hover, &:focus {
+                    color: $colHover;   }}}
+        .active {
+            > a, > a:hover, > a:focus {
+                color: $colHover;
+                background-color: $bgHighlight; }}
+        .open {
+            > a, > a:hover, > a:focus {
+                color: $colHover;
+                background-color: $bgHighlight;
+                .caret {
+                    border-top-color: $colHover;
+                    border-bottom-color: $colHover; }}}
+        > .dropdown {
+            > a {
+                .caret {
+                    border-top-color: $colDefault;
+                    border-bottom-color: $colDefault; }
+                &:hover, &:focus {
+                    .caret {
+                        border-top-color: $colHover;
+                        border-bottom-color: $colHover; }}}}}
+    .navbar-toggle {
+        border-color: $bgHighlight;
+        &:hover, &:focus {
+            background-color: $bgHighlight; }
+        .icon-bar {
+            background-color: $colDefault; }}}
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: $colDefault;
+        &:hover, &:focus {
+            color: $colHover;
+            background-color: $bgHighlight; }}
+}
+
+/*  ------------------------------------------
+    Carousel
+    ------------------------------------------  */
+#myCarousel { 
+  //background: url(../../assets/images/technology-785742_640.jpg)  top center no-repeat;  
+  //width: 100%;
+  margin-top: 70px;
+}
+
+.carousel-inner {
+  .item {
+    padding: 1px 0px;
+    color: #fff;
+    height: 180px;
+    //vertical-align: middle;
+    //background: top center;
+
+    h3 {
+      font-size: 16px;
+      text-shadow: 1px 2px 2px $color-gray-900-darker;
+      margin: 0px 0px 5px 0px;
+      span {
+        color: #3F51B5;
+      } 
+    }
+    h2 {
+      font-size: 18px;
+      text-shadow: 1px 2px 2px $color-gray-900-darker;
+      border: 1px solid #fff;
+      //max-width: 670px;
+      margin: 0px 0px 20px 0px;
+      padding: 5px;
+    }
+
+    @include susy-media($tablet-a $tablet-b) {
+      padding: 1px 0px;
+      color: #fff;
+      height: 250px;
+      //vertical-align: middle;
+      //background: top center;
+      h3 {
+        font-size: 22px;
+        text-shadow: 1px 2px 2px $color-gray-900-darker;
+        //margin: 0px 0px 5px 0px;
+        span {
+          color: #3F51B5;
+        } 
+      }
+      h2 {
+        font-size: 26px;
+        border: 1px solid #fff;
+        text-shadow: 1px 2px 2px $color-gray-900-darker;
+        max-width: 670px;
+        margin: 0px 0px -10px 0px;
+        padding: 5px;
+      }
+    }
+    @include susy-media(min-width $desktop-a) { 
+      padding: 1px 0px;
+      color: #fff;
+      height: 350px;
+      //vertical-align: middle;
+      //background: top center;
+      h3 {
+        font-size: 2em;
+        text-shadow: 1px 2px 2px $color-gray-900-darker;
+        margin: 0px 0px 5px 0px;
+        span {
+          color: #3F51B5;
+        } 
+      }
+      h2 {
+        font-size: 2.5em;
+        border: 2px solid #fff;
+        text-shadow: 1px 2px 2px $color-gray-900-darker;
+        max-width: 670px;
+        margin: 20px 0px 80px 0px;
+        padding: 5px;
+      }
+    }
+  }
+  #slide1 {
+    background: url('../images/technology-785742_200.jpg') top center no-repeat;
+    @include susy-media($tablet-a $tablet-b) {
+      background: url('../images/technology-785742_250.jpg') top center no-repeat; }
+    @include susy-media(min-width $desktop-a) {
+      background: url('../images/technology-785742_350.jpg') top center no-repeat; }
+  }
+  #slide2 {
+    background: url('../images/autos-214033_200.jpg') top center no-repeat;
+    @include susy-media($tablet-a $tablet-b) {
+      background: url('../images/autos-214033_250.jpg') top center no-repeat; }
+    @include susy-media(min-width $desktop-a) {
+      background: url('../images/autos-214033_350.jpg') top center no-repeat; }
+  }
+  #slide3 {
+    background: url('../images/electronics-1851218_200.jpg') top center no-repeat;
+    @include susy-media($tablet-a $tablet-b) {
+      background: url('../images/electronics-1851218_250.jpg') top center no-repeat; }
+    @include susy-media(min-width $desktop-a) {
+      background: url('../images/electronics-1851218_350.jpg') top center no-repeat; }
+  }
+}
+
+.carousel-indicators {
+  bottom: -10px;
+  li {    
+    background-color: rgba($color-secondary-100, 0.3);
+    border: 1px solid $color-secondary-200;
+    //border: 1px solid darken( $color-secondary-200, 10% );    
+    width: 14px;
+    height: 8px;
+    margin: 1px;
+  }
+    .active {
+    background-color: $color-secondary-400;
+    border: 1px solid $color-secondary-200;
+    width: 16px;
+    height: 10px;
+  }
+}
+
+.slider-overlay {
+  width: 100%;
+  //background: url(../../assets/images/sys-logo01.gif);
+  background: rgba(0, 0, 0, .3);  
+}
+
+
+/*  ------------------------------------------
+    General webpage style
+    ------------------------------------------  */
+.logo {
+  img {
+    max-width: 55px;
+  }
+  .company-name {
+    display:none;
+  }
+  // .. Tablet Layout Pattern 20em=320px (old iPhone) 48em=768px(iPad)  
+  @include susy-media($tablet-a $tablet-b) {
+    .company-name {
+      display: inline-block;
+    }
+  }
+  // .. Desktop Layout Pattern
+  @include susy-media(min-width $desktop-a) {
+    .company-name {
+      display: inline-block;
+      font-size: 26px;
+    }
+  }
+}
+
+
+.navbar{
+  padding: 10px 10px;
+}
+
+.navbar-brand{
+  padding: 0px 15px;
+}
+
+// layout work
+.contents {
+  h1 { text-shadow: 1px 2px 2px $color-gray-700-dark; }
+  // .. Tablet Layout Pattern   
+  @include susy-media($tablet-a $tablet-b) {
+    @include span(8 of 12);
+  }
+  // .. Desktop Layout Pattern
+  @include susy-media(min-width $desktop-a) {
+    @include span(3 of 4);
+    .first-col {
+      @include span(7);
+      padding: gutter();
+    }
+    .second-col {
+      @include span(last 5);
+      padding: gutter();
+    }
+  }
+
+}
+/*  ------------------------------------------
+    Sidebar
+    ------------------------------------------  */
+
+.sidebar {
+  background-color: $color-primary-100;
+  color: $color-gray-100-lighter;
+  padding: gutter();
+  .seperator{
+    background-color: $color-primary-500;
+
+    h2 { text-shadow: 1px 2px 2px $color-gray-700-dark;}
+  }
+  
+  // .. Tablet Layout Pattern 2 
+  @include susy-media($tablet-a $tablet-b) {
+    @include span(4 of 12 last);
+  }
+  // .. Desktop Layout Pattern
+  @include susy-media(min-width $desktop-a) {
+    @include span(1 of 4 last);
+  }
+  
+  margin-top: gutter();
+  //height: 40vh;
+  //background: rgba(250, 231, 179, 0.8);
+}
+
+/*  ------------------------------------------
+    Footer
+    ------------------------------------------  */
+.footer-golden {
+  background-color: $color-primary-700;
+  color: $color-primary-100;
+  padding: gutter();
+  @include full;
+
+  @include susy-media(min-width $desktop-a) {
+    @include with-layout($golden-layout) {
+      .web-links {
+        @include span(1 at 1);
+      }
+      .social {
+        @include span(1 at 2);
+      
+        .social-link {
+          @include span(3 of 6 .25 inside);
+        }}
+      .contacts {
+        @include span(1 at 3);
+        img {
+          @include span(50%);
+        }
+      }
+    }
+  }
+}
+.footer-copyright { 
+  padding: gutter();
+  //margin-top: gutter(10px);
+
+  vertical-align: middle; //baseline|length|sub|super|top|text-top|middle|bottom|text-bottom|initial|inherit
+  background-color: $color-primary-100;
+  color: $color-primary-700;
+  font-family: 'Lato', sans-serif;
+  //font-size: 20px;
+  //background: #00aae5;
+  //color: #fff;
+  text-shadow: 1px 2px 2px $color-gray-500 ; //#117da8
+  line-height: 160%;
+  //border: .1em solid $color-primary-700;
+  @include full;
+
+  .copyright {
+    @include susy-media(min-width $tablet-a) { 
+      @include span(6);
+      margin-top: gutter(10px);
+      font-size: 20px;
+    }
+  }
+  .developer {
+    @include susy-media(min-width $tablet-a) { 
+      @include span(3 last);
+      margin-top: gutter(10px);
+      font-size: 20px;
+    }
+  }
+}
+
+
+
+
+
+

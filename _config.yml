@@ -1,0 +1,16 @@
+name: Name
+description: Name template for Jekyll
+#paginate: 10
+#baseurl: ‘/name-Jekyll-website’
+baseurl: './'
+exclude: ["node_modules", 
+"gulpfile.js", 
+"package.json", 
+"bower_components",
+"bower.json",
+"nbproject",
+".netbeans.xml",
+"README.md"]
+#markdown: redcarpet
+#highlighter: pygments # or rouge or null
+#disqus_shortname: 'your-shortname' # ignore this if not using Disqus

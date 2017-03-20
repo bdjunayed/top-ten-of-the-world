@@ -1,0 +1,248 @@
+@import '../bower_components/susy/sass/susy';
+//@import '../bower_components/normalize-scss/_normalize.scss';
+
+//@import '../bower_components/bootstrap-sass/assets/stylesheets/bootstrap'; // Boostrap
+// Resets
+//@import '_custom-bootstrap.scss';
+
+/*  ------------------------------------------
+    Susy settings
+    ------------------------------------------  */
+$susy: (
+  flow: ltr, // ltr | rtl
+  output: float, // float | isolate
+  math: fluid, // fluid | static (requires column-width)
+  column-width: false, // false | value
+  container: 580px, // length or % | auto
+  container-position: center, // left | center | right | <length> [*2] (grid padding)
+  last-flow: to, //from | to
+  columns: 12,
+  gutters: 0,
+  gutter-position: after, // before | after | split | inside | inside-static (requires column-width)
+  global-box-sizing: border-box, // content-box | border-box (affects inside/inside-static)
+  debug: (
+    image: hide, //hide | show
+    color: rgba(#66f, .25),
+    output: background, // background | overlay
+    toggle: top left, //top left  | top right
+  ),
+  use-custom: (
+    background-image: true, // look for background-image mixin
+    background-options: false, // look for background-size, -origin and -clip and other compass/bourbon mixins
+    box-sizing: true, // look for custom bix sizing mixin
+    clearfix: false, // true = look for internal clearfix before using micro clearfix
+    rem: true, // look for rem mixin
+  )
+);
+
+$gallery_layout: layout( 12 .125 fluid float after);
+
+$nav_layout: layout( 12 0 fluid float inside);
+
+$golden_layout: layout( (1 1.618 2.618) .1 fluid float split);
+/*  ------------------------------------------
+    It makes your life easy!
+    ------------------------------------------  */
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+ }
+img {
+  width: 100%;
+  height: auto;
+}
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+$color-primary-100: #C5CAE9;
+$color-primary-500: #3F51B5;
+$color-primary-700: #303F9F;
+
+$color-secondary-200: #F48FB1;
+$color-secondary-100: #F8BBD0;
+$color-secondary-400: #EC407A;
+
+$color-gray-900-darker: #212121;
+$color-gray-700-dark: #616161;
+$color-gray-500: #9E9E9E;
+$color-gray-300-light: #E0E0E0;
+$color-gray-100-lighter: #F5F5F5;
+$color-gray-50-lightest: #FAFAFA;
+$bgt: rgba(0, 0, 255, 0.2);
+
+// Colours
+$color-primary: #38a1d6;
+$color-secondary: #16f4d0;
+$color-tertiary: #fcee21;
+$color-grey: #a1acb5;
+$color-grey-light: #dce8ef;
+$color-grey-dark: #333;
+
+$mobile-landscape: 30rem; // 480px
+$tablet: 40rem; // 640px
+$tablet-wide: 48rem; // 768px
+$desktop: 64rem; // 1024px
+$widescreen: 71.25rem; // 1140px
+
+$tablet-a: 414px;
+$tablet-b: 768px;
+$desktop-a: 1366px;
+
+.debug {
+  border: 1px dashed red;
+  //background-color: #EFE; //OR
+}
+.wrap {
+  @include container;
+}
+// wrap and content may together work
+.contents {
+  padding: 0 gutter();
+}
+
+// Colours
+$color-primary: #38a1d6;
+$color-secondary: #16f4d0;
+$color-tertiary: #fcee21;
+$color-grey: #a1acb5;
+$color-grey-light: #dce8ef;
+$color-grey-dark: #333;
+
+// Breakpoints
+$mobile-landscape: 30rem; // 480px
+$tablet: 40rem; // 640px
+$tablet-wide: 48rem; // 768px
+$desktop: 64rem; // 1024px
+$widescreen: 71.25rem; // 1140px
+
+* {
+  box-sizing: border-box;
+}
+
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.container {
+  @include container();
+}
+
+header {
+  background-color: $color-primary;
+  height: 4rem;
+  margin-bottom: gutter();
+}
+
+.content {
+  padding: 0 gutter();
+}
+
+.trans{ background-color: rgba(0, 255, 255, 0.2);}
+.sec {
+  .left{    
+    @include susy-breakpoint($mobile-landscape){
+      height:5rem;background-color: $bgt;
+      padding: 0; margin: 0; @include span(2%);
+    }
+  }
+
+  .middle{@include susy-clearfix; @extend %clearfix;
+    //@include susy-clearfix; @extend %clearfix;
+    background-color: $bgt;
+    @include susy-breakpoint($mobile-landscape){      
+      padding: 0; margin: 0; @include span(96%);
+    }
+
+    .start {
+      height:5rem; background-color: $bgt;
+      @include susy-breakpoint($mobile-landscape){      
+        @include span(6);
+      }    
+    }
+    .end {
+      height:5rem; background-color: $bgt; 
+      @include susy-breakpoint($mobile-landscape){      
+        @include span(6 last);
+      }
+    }
+  }
+
+  .right{    
+    @include susy-breakpoint($mobile-landscape){
+      height:5rem;background-color: $color-secondary;
+      padding: 0; margin: 0; @include span(2% last);
+    }
+  }
+}
+
+section {
+  background-color: $color-secondary;
+  margin-bottom: gutter();
+  @extend %clearfix;
+  
+
+  
+  .a {
+    margin-bottom: gutter();
+    height: 5rem;
+    background-color: $color-grey-light;
+  }
+  
+ 
+  .c {    
+    height: 5rem;
+    background-color: $color-grey-light;
+    
+    @media (min-width: $mobile-landscape) {
+      @include span(6 of 12 last);
+    }
+  }
+  
+  .b {
+    margin-bottom: gutter();height: 5rem;
+    background-color: $color-grey-light;
+    
+    @media (min-width: $mobile-landscape) {
+      margin-bottom: 0;@include span(6 of 12);
+    }
+  }
+  @media (min-width: $tablet-wide) {
+    @include span(8 of 12);
+  }  
+}
+
+aside {
+  background-color: $color-tertiary;
+  height: 16rem;
+  margin-bottom: gutter();
+  
+  @media (min-width: $tablet-wide) {
+    @include span(4 of 12 last);
+  }
+}
+
+footer {
+  background-color: $color-grey;
+  height: 4rem;
+}
+
+.outline {
+  display: block;
+  margin: gutter() 0;
+  font-family: Lato, sans-serif;
+  color: $color-primary;
+  text-decoration: none;
+  text-align: center;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}

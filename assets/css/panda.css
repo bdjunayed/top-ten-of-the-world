@@ -1,0 +1,150 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+img {
+  width: 100%;
+  height: auto; }
+
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+nav {
+  margin: 10px 0;
+  text-align: center; }
+  nav li {
+    background: #eee; }
+  nav a {
+    display: block; }
+    nav a:hover {
+      background: #ddd; }
+
+.page {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: linear-gradient(to right, rgba(102, 102, 255, 0.25), rgba(179, 179, 255, 0.25) 80%, transparent 80%);
+  background-size: 8.47458%;
+  background-origin: content-box;
+  background-clip: content-box;
+  background-position: left top; }
+  .page:after {
+    content: " ";
+    display: block;
+    clear: both; }
+
+header {
+  clear: both;
+  width: 100%;
+  float: left;
+  margin-left: 0;
+  margin-right: 0; }
+  header .logo {
+    width: 23.72881%;
+    float: left;
+    margin-right: 1.69492%; }
+  header .company-name {
+    width: 57.62712%;
+    float: right;
+    margin-right: 0; }
+  header nav {
+    clear: both;
+    width: 100%;
+    float: left;
+    margin-left: 0;
+    margin-right: 0; }
+  header .nav-item {
+    width: 25%;
+    float: left; }
+
+.hero {
+  clear: both;
+  width: 100%;
+  float: left;
+  margin-left: 0;
+  margin-right: 0; }
+  .hero .why-we-love {
+    width: 40.67797%;
+    float: left;
+    margin-right: 1.69492%; }
+  .hero .about-pandas {
+    width: 57.62712%;
+    float: right;
+    margin-right: 0; }
+  .hero .in-the-wild {
+    width: 41.17647%;
+    float: left;
+    margin-right: 2.94118%; }
+  .hero .in-the-zoo {
+    width: 55.88235%;
+    float: right;
+    margin-right: 0; }
+  .hero .in-the-media {
+    width: 100%;
+    float: left;
+    margin-left: 0;
+    margin-right: 0; }
+    .hero .in-the-media img {
+      width: 26.47059%;
+      float: left;
+      margin-right: 2.94118%; }
+    .hero .in-the-media .copy {
+      width: 100%;
+      float: right;
+      margin-right: 0; }
+
+.panda-gallery {
+  clear: both;
+  width: 100%;
+  float: left;
+  margin-left: 0;
+  margin-right: 0; }
+  .panda-gallery div {
+    width: 32.71028%;
+    float: left;
+    margin-bottom: 0.93458%; }
+    .panda-gallery div:nth-child(3n + 1) {
+      margin-left: 0;
+      margin-right: -100%;
+      clear: both;
+      margin-left: 0; }
+    .panda-gallery div:nth-child(3n + 2) {
+      margin-left: 33.64486%;
+      margin-right: -100%;
+      clear: none; }
+    .panda-gallery div:nth-child(3n + 3) {
+      margin-left: 67.28972%;
+      margin-right: -100%;
+      clear: none; }
+
+footer .panda-links {
+  width: 18.06358%;
+  float: left;
+  margin-left: 0.90318%;
+  margin-right: 0.90318%; }
+
+footer .panda-social {
+  width: 29.22688%;
+  float: left;
+  margin-left: 0.90318%;
+  margin-right: 0.90318%; }
+
+footer .social-link {
+  width: 50%;
+  float: left;
+  padding-left: 1.66667%;
+  padding-right: 1.66667%; }
+
+footer .panda-partners {
+  width: 47.29046%;
+  float: right;
+  margin-left: 0.90318%;
+  margin-right: 0.90318%; }
+  footer .panda-partners img {
+    width: 50%;
+    float: left;
+    margin-left: 0.90318%;
+    margin-right: 0.90318%; }
