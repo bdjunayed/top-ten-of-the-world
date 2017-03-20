@@ -1,0 +1,157 @@
+/*  ------------------------------------------
+    Susy settings
+    ------------------------------------------  */
+/*  ------------------------------------------
+    It makes your life easy!
+    ------------------------------------------  */
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+img {
+  width: 100%;
+  height: auto; }
+
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+.debug {
+  border: 1px dashed red; }
+
+.wrap {
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto; }
+  .wrap:after {
+    content: " ";
+    display: block;
+    clear: both; }
+
+.contents {
+  padding: 0; }
+
+* {
+  box-sizing: border-box; }
+
+.sec .middle:after, section:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.container {
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto; }
+  .container:after {
+    content: " ";
+    display: block;
+    clear: both; }
+
+header {
+  background-color: #38a1d6;
+  height: 4rem; }
+
+.content {
+  padding: 0; }
+
+.trans {
+  background-color: rgba(0, 255, 255, 0.2); }
+
+@media (min-width: 30rem) {
+  .sec .left {
+    height: 5rem;
+    background-color: rgba(0, 0, 255, 0.2);
+    padding: 0;
+    margin: 0;
+    width: 2%;
+    float: left; } }
+
+.sec .middle {
+  background-color: rgba(0, 0, 255, 0.2); }
+  .sec .middle:after {
+    content: " ";
+    display: block;
+    clear: both; }
+  @media (min-width: 30rem) {
+    .sec .middle {
+      padding: 0;
+      margin: 0;
+      width: 96%;
+      float: left; } }
+  .sec .middle .start {
+    height: 5rem;
+    background-color: rgba(0, 0, 255, 0.2); }
+    @media (min-width: 30rem) {
+      .sec .middle .start {
+        width: 50%;
+        float: left; } }
+  .sec .middle .end {
+    height: 5rem;
+    background-color: rgba(0, 0, 255, 0.2); }
+    @media (min-width: 30rem) {
+      .sec .middle .end {
+        width: 50%;
+        float: right;
+        margin-right: 0; } }
+
+@media (min-width: 30rem) {
+  .sec .right {
+    height: 5rem;
+    background-color: #16f4d0;
+    padding: 0;
+    margin: 0;
+    width: 2%;
+    float: right;
+    margin-right: 0; } }
+
+section {
+  background-color: #16f4d0; }
+  section .a {
+    height: 5rem;
+    background-color: #dce8ef; }
+  section .c {
+    height: 5rem;
+    background-color: #dce8ef; }
+    @media (min-width: 30rem) {
+      section .c {
+        width: 50%;
+        float: right;
+        margin-right: 0; } }
+  section .b {
+    height: 5rem;
+    background-color: #dce8ef; }
+    @media (min-width: 30rem) {
+      section .b {
+        margin-bottom: 0;
+        width: 50%;
+        float: left; } }
+  @media (min-width: 48rem) {
+    section {
+      width: 66.66667%;
+      float: left; } }
+
+aside {
+  background-color: #fcee21;
+  height: 16rem; }
+  @media (min-width: 48rem) {
+    aside {
+      width: 33.33333%;
+      float: right;
+      margin-right: 0; } }
+
+footer {
+  background-color: #a1acb5;
+  height: 4rem; }
+
+.outline {
+  display: block;
+  margin: 0;
+  font-family: Lato, sans-serif;
+  color: #38a1d6;
+  text-decoration: none;
+  text-align: center; }
+  .outline:hover {
+    text-decoration: underline; }
