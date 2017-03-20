@@ -1,22 +1,29 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>{{ page.title }}</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <link rel="icon" type="image/x-icon" href="favicon.ico"/>
-        <link rel="icon" type="image/png" href="apple-touch-icon.png"/>
-        <!-- Place favicon.ico in the root directory -->
-        <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}assets/css/style.css">
-    </head>
-    <body>
-        <div class="hero">
-            <h1>Banner Welcome </h1>
-            <p></p>
+<html lang="en">
+{% include head.html %}
+<body>
+  {% include header.html %}
+  <div class="page-wrap">
+    <main role="main">
+      <div class="page-container">
+        {% if page.img %}
+         <img class="page-img" src={{ "/assets/images/" | prepend: site.baseurl | append : page.img}} alt="{{page.title}}">
+        {% endif %}
+        <div class="page-content">
+          <article>
+            <h1 class="page-title">{{page.title}}</h1>
+            {% if page.author %}
+            <div class="date-byline"><span><i class="fa fa-calendar-o" aria-hidden="true"></i> {{page.date | date: '%Y, %b %d'}}&nbsp;&nbsp;&nbsp;&nbsp;</span><span><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{page.author}}</span></div>
+            {% endif %}
+            {{page.content | markdownify}}
+          </article>
+          {% include share.html %}
+          {% include disqus.html %}
         </div>
-
-
-        {{ content }}
+      </div>
+    </main>
+  </div>
+  {% include footer.html %}
+{% include javascripts.html %}
+</body>
+</html>
